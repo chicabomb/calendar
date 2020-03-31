@@ -1,0 +1,45 @@
+@import 'global-variables';
+@import 'global-styles';
+
+:host {
+  @extend .flex;
+  @extend .container;
+  > * {
+    margin: 16px 48px 16px 0;
+  }
+}
+
+.nav {
+  @extend .flex;
+  height: 30px;
+  align-items: center;
+  > * {
+    padding: 10px 20px;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    margin: auto 20px auto 0;
+    color: black;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 16px;
+    border-radius: 2px;
+    transition: all .1s ease;
+    &:hover {
+      box-shadow: 0 2px 6px rgba($sap-black, .2);
+    }
+  }
+}
+
+.logo {
+  @extend .flex;
+  font-family: 'Zilla Slab', serif;
+  background-color: black;
+  letter-spacing: 2px;
+  width: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}

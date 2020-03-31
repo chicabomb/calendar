@@ -1,0 +1,11 @@
+<div class="logo">tali.</div>
+<nav class="nav">
+  <a
+    matRipple
+    [matRippleRadius]="40"
+    *ngFor="let route of routes"
+    [routerLink]="[route.path]"
+    routerLinkActive="header-active-route">
+    {{route.name}}
+  </a>
+</nav>

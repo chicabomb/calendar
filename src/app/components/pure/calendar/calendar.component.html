@@ -1,0 +1,8 @@
+<div
+  *ngFor="let group of events; index as i"
+  class="event-group"
+  [style.top]="group[0].start + 'px'"
+  >
+  <!-- Here there's 2 loops, O(nˆ2) -->
+  <sap-event [group]="group" [events]="events" [i]="i"></sap-event>
+</div>

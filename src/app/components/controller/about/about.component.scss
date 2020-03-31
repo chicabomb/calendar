@@ -1,0 +1,22 @@
+@import 'global-variables';
+@import 'global-styles';
+
+:host {
+  @extend .flex;
+  flex-direction: column;
+  justify-content: left;
+   * {
+    text-align: justify;
+    color: $sap-black;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    font-size: 12px;
+    i {
+      color: black;
+      font-size: 14px;
+      font-family: 'Zilla Slab', serif;
+      background-color: $sap-light-gray;
+    }
+  }
+}

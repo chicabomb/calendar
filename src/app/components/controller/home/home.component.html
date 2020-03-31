@@ -1,0 +1,10 @@
+<div class="area">
+  <div class="time-area">
+    <div
+      *ngFor="let time of times; index as i"
+      [ngClass]="{minor: i % 2}">
+        {{ time | date: i % 2 ? 'h:mm' : 'shortTime' }}
+    </div>
+  </div>
+  <sap-calendar [events]="events"></sap-calendar>
+</div>

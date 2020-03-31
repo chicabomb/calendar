@@ -1,0 +1,48 @@
+@import 'global-variables';
+@import 'global-styles';
+
+:host {
+  width: 620px;
+  max-width: 100%;
+  height: 720px;
+  background-color: $sap-light-gray;
+  padding: 0 10px;
+  position: relative;
+}
+
+.event-group {
+  position: absolute;
+  display: flex;
+  width: calc(100% - 20px);
+  justify-content: space-between;
+}
+
+.event {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: white;
+  padding: 0 8px;
+  border-radius: 4px;
+  box-shadow: 0 6px 10px rgba($sap-mighty-blue, .2);
+  font-family: 'Inter', sans-serif;
+  > * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    font-size: 12px;
+  }
+  h3 {
+    letter-spacing: .5px;
+    font-weight: bold;
+    color: $sap-medium-gray;
+    margin: 5px 0 0;
+    line-height: 18px;
+  }
+  p {
+    line-height: 14px;
+    color: $sap-black;
+  }
+}

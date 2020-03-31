@@ -1,0 +1,66 @@
+<p>
+  <i> Disclaimer </i> - <br />
+  The main content of this app can be found in the Calendar Service, located at
+  <i>/src/app/services/calendar.service.ts</i>, and in the Calendar Component, located at
+  <i>/src/app/services/home.component.ts</i>. These were done in approximately 4 hours, inside the required scope
+  timespan of ~6 hours. Below I describe the development process to back up the decisions made resulting in what is
+  seen. Some explanations are also added to the exercise itself in the form of comments, as well as some asymptotic
+  analysis
+  of most of the code developed.
+  <br /><br />
+</p>
+<p>
+  <i> Structure / Architecture </i> - <br />
+  The separation of concerns can be seen at the <i>/app/</i> - the interface components and
+  the services have folders of each type, and as an project grows and the necessity of more concerns appear, this would
+  be their location (e.g.: directives or modals folder). The interface components themselves are separated in
+  their own concerns: the containers / pure components. The containers are the data handler shells, which in this
+  scenario is unidirectional data flow. The pure components are presentational, and have double-way data binding with
+  their controller and you can see the updates happening on the fly.
+  <br /><br />
+  <i> Content</i> - the initial idea that came to me was to build it as a grid system - and so did I. I created a 720
+  row
+  sized grid and would imply the amount of columns with the number of overlapping events. It would be a simple one-way
+  data-binded attribute such as the following: <I>[style.grid-row]=“event.start / event.end“</I> and
+  <I>[style.grid-column]=“1 / span all“</I>. The two problems I found were:
+</p>
+<ul>
+  <li>
+    When you imply the number of columns some browsers don’t implicitly set the spread of the item so it occupies 100%
+    of the extra space. In other words, setting <i>grid-column-end: span all;</i> would break.
+  </li>
+  <li>
+    Since the columns where implied, overlapping scenarios weren’t pushed over to the lower rows of the grid. They would
+    simply create another row.
+  </li>
+</ul>
+<p>
+  So in order to make it work in less than 6 hours, I created a matrix on setEvent(), and generate the width for each
+  scenario inside the event component itself. The setEvent() holds a sort() inside which brings the procedural speed to
+  a
+  whooping O(n.logn) in the worst case, if we consider this uses a merge sort. All the rest is linear.
+  To generate the calendar grid there’s a double loop, bringing the worst case in the whole app to nˆ2.
+   <br /><br />
+  <i> Aesthetics</i> - as a personal tendency, as soon as the feature is being executed in a performatic and correct
+  manner, I focus on the the usability and interface quality.
+  <br /><br />
+  <i> Improvements </i> - have I had space to go extra on this exercise, my next attack points would be:
+</p>
+<ul>
+  <li>
+    <i>Structural</i> - Add modules for all the structure. the same way we have a service module, we’d find then
+    throughout
+    all the groups, to make it cleaner and clearer.
+  </li>
+  <li>
+    <i>Interface</i> - Although requested by the exercise parameters, having the console call is a breach of
+    security. I would add inputs for event creations, deletions and so on in a graphical manner. Maybe even route params
+    if in
+    the mood.
+  </li>
+  <li>
+    Add more info modal with quick actions to delete and edit event.
+  </li>
+</ul>
+<br />
+<p>p.s.: You can pass title and description as parameters for your event too. Cheers.</p>

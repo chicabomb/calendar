@@ -1,0 +1,24 @@
+@import 'global-variables';
+@import 'global-styles';
+
+:host, .area {
+  @extend .flex;
+  @extend .container;
+  justify-content: center;
+}
+
+.time-area {
+  color: $sap-black;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: space-between;
+  height: 720px;
+  margin-right: 12px;
+  font-size: 12px;
+}
+
+.minor {
+  color: $sap-dark-gray;
+}

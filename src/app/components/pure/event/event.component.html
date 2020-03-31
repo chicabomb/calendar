@@ -1,0 +1,16 @@
+<div
+  matRipple
+  [matRippleRadius]="200"
+  [matRippleColor]="'#0060df10'"
+  class="event"
+  *ngFor="let event of group"
+  [style.height]="event.end - event.start + 'px'"
+  [style.width]="calculateEventWidth(events[i-1], event.start)"
+  [style.margin-top]="event.start - group[0].start + 'px'">
+  <h3>
+    {{event.title || 'Untitled event'}}
+  </h3>
+  <p>
+    {{event.description || 'Event has no description'}}
+  </p>
+</div>
