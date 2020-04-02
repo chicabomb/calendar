@@ -12,13 +12,13 @@
 <p>
   <i> Structure / Architecture </i> - <br />
   The separation of concerns can be seen at the <i>/app/</i> - the interface components and
-  the services have folders of each type, and as an project grows and the necessity of more concerns appear, this would
+  the services have folders of each type, and as the project grows and the necessity of more concerns appear, this would
   be their location (e.g.: directives or modals folder). The interface components themselves are separated in
   their own concerns: the containers / pure components. The containers are the data handler shells, which in this
   scenario is unidirectional data flow. The pure components are presentational, and have double-way data binding with
   their controller and you can see the updates happening on the fly.
   <br /><br />
-  <i> Content</i> - the initial idea that came to me was to build it as a grid system - and so did I. I created a 720
+  <i> Content</i> - the initial idea that came to me was to build it as a grid system. I created a 720
   row
   sized grid and would imply the amount of columns with the number of overlapping events. It would be a simple one-way
   data-binded attribute such as the following: <I>[style.grid-row]=“event.start / event.end“</I> and
@@ -30,7 +30,7 @@
     of the extra space. In other words, setting <i>grid-column-end: span all;</i> would break.
   </li>
   <li>
-    Since the columns where implied, overlapping scenarios weren’t pushed over to the lower rows of the grid. They would
+    Since the columns were implied, overlapping scenarios weren’t pushed over to the lower rows of the grid. They would
     simply create another row.
   </li>
 </ul>
